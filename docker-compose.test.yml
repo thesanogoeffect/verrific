@@ -1,0 +1,10 @@
+services:
+  grobid:
+    image: lfoppiano/grobid:0.8.2
+    init: true
+    ulimits:
+      core:
+        soft: 0
+        hard: 0
+    ports:
+      - "8070:8070"
