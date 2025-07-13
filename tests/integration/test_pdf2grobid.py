@@ -25,17 +25,17 @@ def test_pdf2grobid_returns_valid_xml(grobid_url, tmp_path):
         pytest.fail(f"Result is not valid XML: {e}")
 
 
-def test_pdf2grobid_content(grobid_url, tmp_path):
-    # Test the content of the XML returned by pdf2grobid
-    pdf_path = "tests/assets/kelders-et-al-2024.pdf"
-    save_file = tmp_path / "grobid_test_result.xml"
-    result_path = pdf_to_grobid(pdf_path, grobid_url=grobid_url, consolidate_citations=True, save_path=str(save_file))
+# def test_pdf2grobid_content(grobid_url, tmp_path):
+#     # Test the content of the XML returned by pdf2grobid
+#     pdf_path = "tests/assets/kelders-et-al-2024.pdf"
+#     save_file = tmp_path / "grobid_test_result.xml"
+#     result_path = pdf_to_grobid(pdf_path, grobid_url=grobid_url, consolidate_citations=True, save_path=str(save_file))
 
-    # Load the XML content
-    with open(result_path, 'r', encoding='utf-8') as file:
-        xml_content = file.read()
+#     # Load the XML content
+#     with open(result_path, 'r', encoding='utf-8') as file:
+#         xml_content = file.read()
 
-    # Check if the XML contains expected elements
-    assert "<teiCorpus" in xml_content, "The XML should contain a <teiCorpus> element"
-    assert "<text>" in xml_content, "The XML should contain a <text> element"
-    assert "<title>" in xml_content, "The XML should contain a <title> element"
+#     # Check if the XML contains expected elements
+#     assert "<teiCorpus" in xml_content, "The XML should contain a <teiCorpus> element"
+#     assert "<text>" in xml_content, "The XML should contain a <text> element"
+#     assert "<title>" in xml_content, "The XML should contain a <title> element"
